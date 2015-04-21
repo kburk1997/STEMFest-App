@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-type" content="text/html; charset=" utf-8"="" /> 
+
+<link rel="stylesheet" href="src/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="src/StemFest.css" />
+ <link rel="stylesheet" href="src/jquery.mobile.icons.min.css" />
+ <link rel="stylesheet" href="src/flipclock.css" />
+ <script src="src/flipclock.js"></script>
+<script src="src/jquery-1.11.1.min.js"></script>
+<script src="src/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$( document ).bind( 'mobileinit', function(){
+  $.mobile.loader.prototype.options.text = "loading";
+  $.mobile.loader.prototype.options.textVisible = false;
+  $.mobile.loader.prototype.options.theme = "a";
+  $.mobile.loader.prototype.options.html = "";
+});
+</script>
+
+<script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false&amp;language=en"></script>
+</head>
+<body>
+
+<div data-role="page" id="main_menu"><div data-role="header" data-position="fixed"><h1>Main Menu</h1></div><div data-role="main" class="ui-content"><div data-role="controlgroup" data-type="vertical">
+      <a href="#info_booth" class="ui-btn">Info Booth</a>
+      <a href="#map" class="ui-btn">Map</a>
+      <a href="http://media.wix.com/ugd/f00809_9fafdc402b8549f2ae4a0b41d201bc31.pdf" class="ui-btn">Schedule &amp; Activities</a>
+      <a href="http://www.stamfordpublicschools.org/district/math/webforms/stemfest-2015-visitor-registration" class="ui-btn">Registration</a>
+    </div></div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="info_booth"><div data-role="header" data-position="fixed">
+
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Info Booth</h1></div><div data-role="main" class="ui-content"><div data-role="controlgroup" data-type="vertical">
+      <a href="#about" class="ui-btn">About</a>
+      <a href="#directions" class="ui-btn">Directions + Parking</a>
+      <a href="#" class="ui-btn">Songs Request</a>
+    </div></div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="about"><div data-role="header" data-position="fixed">
+   <a href="#" data-rel="back" class="ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext ui-corner-all">Back</a>
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>About</h1></div><div data-role="main" class="ui-content">
+<script>
+// popup examples
+$( document ).on( "pagecreate", function() {
+    // The window width and height are decreased by 30 to take the tolerance of 15 pixels at each side into account
+    function scale( width, height, padding, border ) {
+        var scrWidth = $( window ).width() - 30,
+            scrHeight = $( window ).height() - 30,
+            ifrPadding = 2 * padding,
+            ifrBorder = 2 * border,
+            ifrWidth = width + ifrPadding + ifrBorder,
+            ifrHeight = height + ifrPadding + ifrBorder,
+            h, w;
+        if ( ifrWidth &lt; scrWidth &amp;&amp; ifrHeight &lt; scrHeight ) {
+            w = ifrWidth;
+            h = ifrHeight;
+        } else if ( ( ifrWidth / scrWidth ) &gt; ( ifrHeight / scrHeight ) ) {
+            w = scrWidth;
+            h = ( scrWidth / ifrWidth ) * ifrHeight;
+        } else {
+            h = scrHeight;
+            w = ( scrHeight / ifrHeight ) * ifrWidth;
+        }
+        return {
+            'width': w - ( ifrPadding + ifrBorder ),
+            'height': h - ( ifrPadding + ifrBorder )
+        };
+    };
+    $( ".ui-popup iframe" )
+        .attr( "width", 0 )
+        .attr( "height", "auto" );
+    $( "#popupVideo" ).on({
+        popupbeforeposition: function() {
+            // call our custom function scale() to get the width and height
+            var size = scale( 497, 298, 15, 1 ),
+                w = size.width,
+                h = size.height;
+            $( "#popupVideo iframe" )
+                .attr( "width", w )
+                .attr( "height", h );
+        },
+        popupafterclose: function() {
+            $( "#popupVideo iframe" )
+                .attr( "width", 0 )
+                .attr( "height", 0 );
+        }
+    });
+});
+</script>
+<a href="#popupVideo" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Launch video</a><div data-role="popup" id="popupVideo" data-overlay-theme="b" data-theme="a" data-tolerance="15,15" class="ui-content">
+
+<iframe class="youtube-player" type="text/html" width="497" height="298" src="http://www.youtube.com/embed/dE6mCn4hDwE?html5=1" frameborder="0"> </iframe>
+</div><br /><p>STEMfest is a free community event that hosts a variety of activities and displays centering around Science, Technology, Engineering, and Mathematics (STEM) for students and their parents.</p><p><strong>The goals of STEMfest are:</strong></p><p>(1) To build awareness about STEM for students (and their parents)</p><p>(2) To demonstrate to students how much fun these disciplines can be</p><p>(3) To show students how these disciplines are inherent in many of the things we do every day</p><p>(4) To have students learn about STEM career and college opportunities</p><br /><p><strong>Find us on the web!</strong></p><div class="ui-grid-b ui-responsive"><div class="ui-block-a"><a href="http://stemfest.us" class="ui-btn ui-corner-all ui-shadow">Website</a></div><div class="ui-block-b"><a href="https://www.facebook.com/pages/Stamford-STEMfest/201557736716911" class="ui-btn ui-corner-all ui-shadow">Facebook</a></div><div class="ui-block-c"><a href="https://twitter.com/CTSTEMfest" class="ui-btn ui-corner-all ui-shadow">Twitter</a></div></div></div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="directions">
+			<script>
+$( document ).on( "pageinit", "#directions", function() {
+    var defaultLatLng = new google.maps.LatLng(41.054404, -73.544511);  // Default to Mill River Park
+ 	drawMap(defaultLatLng);  // No geolocation support, show default map
+    function drawMap(latlng) {
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        // Add an overlay to the map of current lat/lng
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "Mill River Park"
+        });
+    }
+});
+			</script><div data-role="header" data-position="fixed">
+   <a href="#" data-rel="back" class="ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext ui-corner-all">Back</a>
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Directions + Parking</h1></div><div data-role="main" class="ui-content" id="directions-main"><h2 class="ui-bar ui-bar-b">Directions</h2><div class="ui-content" id="map-canvas"></div><h2 class="ui-bar ui-bar-b">Parking</h2>
+	Parking is available in the Bell Street Garage.
+</div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div id="map" data-role="page"><div data-role="header" data-position="fixed">
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Map</h1></div><div data-role="main" class="ui-content">
+    
+    <img src="http://www.stamfordpublicschools.org/sites/stamfordps/files/u153/stemfest_map.jpg" />
+  </div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="schedule"><div data-role="header" data-position="fixed">
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Schedule &amp; Activities</h1></div><div data-role="main" class="ui-content"><form method="post" action="demoform.asp"><fieldset class="ui-field-contain">
+    <label for="sortBy2">Sort by:</label>
+    <select name="sortBy2" id="sortBy2"><option value="cat" href="#schedule-cat">Category(default)</option><option value="grade" href="#schedule-grade">Grade Level</option><option value="org" href="#schedule-org">School/Organization</option></select>
+  </fieldset></form><script>
+document.getElementById('sortBy2').onchange = function() {
+    window.location.href = this.children[this.selectedIndex].getAttribute('href');
+}
+</script>
+
+<br /><p>Search for activities:</p><form class="ui-filterable">
+      <input data-type="search" id="userInput1" placecholder="Search for activities.." />
+    </form><div data-role="collapsible-set" data-collapsed-icon="carat-r" data-expanded-icon="carat-d"><div data-role="collapsible"><h3>Opening<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+    			<li>
+         			<a href="#"><p>9:00 AM</p><h2>Registration</h2></a>
+       			</li>
+      			<li>
+         			<a href="#"><p>10:00 AM</p><h2>Opening</h2></a>
+      			</li>
+		</ul></div><div data-role="collapsible"><h3>Math<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+	<li>
+         <a href="#"><p>1:00 PM</p><h2>Activity I</h2><p>Presenter: Eileen Wargo<br />Scofield Magnet Middle School</p></a>
+       	</li>		
+	
+	<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity P</h2><p>Presenter: Alec Iogman<br />Westover Magnet Elementary School</p></a>
+       	</li>
+	</ul></div><div data-role="collapsible"><h3>Biology<span class="ui-li-count">1</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+			<li>
+         			<a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       			</li>
+		</ul></div><div data-role="collapsible"><h3>Environment<span class="ui-li-count">1</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		       <li>
+         <a href="#aquarion"><p>All Day</p><h2>Aquarion Water: How Water Works</h2><p>Presenter: Peter Fazekas</p></a>
+       </li>
+
+</ul></div><div data-role="collapsible"><h3>Physics<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		
+	<li>
+         <a href="#"><p>1:45 PM</p><h2>Activity K</h2><p>Presenter: Karen Kulish<br />Scofield Magnet Middle School</p></a>
+       	</li>
+<li>
+         			<a href="#"><p>2:30 PM</p><h2>Activity M</h2><p>Presenter: Vin Urbanowski<br />Academy of Information Technology and Engineering</p></a>
+       			</li>
+		</ul></div><div data-role="collapsible"><h3>Aerospace and Aviation<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+			<li>
+         			<a href="#"><p>11:30 AM</p><h2>Activity F</h2><p>Presenter: Women in Aviation</p></a>
+       			</li>
+			<li>
+         			<a href="#"><p>2:30 PM</p><h2>Activity M</h2><p>Presenter: Vin Urbanowski<br />Academy of Information Technology and Engineering</p></a>
+       			</li>
+		</ul></div><div data-role="collapsible"><h3>Chemistry<span class="ui-li-count">0</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		</ul></div><div data-role="collapsible"><h3>Technology<span class="ui-li-count">0</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+
+<li>
+         <a href="#rippowam-labs"><p>3:15 PM</p><h2>Activity Q</h2><p>Presenter: Rippowam Labs</p></a>
+       </li>
+		</ul></div><div data-role="collapsible"><h3>Engineering<span class="ui-li-count">1</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		       	<li>
+         <a href="#"><p>11:30 AM</p><h2>Activity D</h2><p>Presenter: Society of Women Engineers</p></a>
+       	</li>
+		</ul></div><div data-role="collapsible"><h3>Women and Minorities in STEM<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+			<li>
+         			<a href="#"><p>11:30 AM</p><h2>Activity F</h2><p>Presenter: Women in Aviation</p></a>
+       			</li>
+       	<li>
+         <a href="#"><p>11:30 AM</p><h2>Activity D</h2><p>Presenter: Society of Women Engineers</p></a>
+       	</li>
+		</ul></div><div data-role="collapsible"><h3>Closing<span class="ui-li-count">1</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		      	<li>
+         			<a href="#"><p>4:00 PM</p><h2>Closing</h2></a>
+       			</li>
+		</ul></div><div data-role="collapsible"><h3>Other<span class="ui-li-count">9</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput1">
+		<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity A</h2><p>Presenter: Ira Flatow</p></a>
+       	</li>
+
+	<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity B</h2><p>Presenter: Adam Scianna</p></a>
+       	</li>
+
+       	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity R</h2><p>Presenter: Kids Draw Free</p></a>
+       </li>
+	<li>
+         <a href="#"><p>11:30 AM</p><h2>Activity E</h2><p>Presenter: Mike Sapia<br />Rippowam Middle School</p></a>
+       	</li>
+       	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity G</h2><p>Presenter: Young Mariners of Stamford</p></a>
+       	</li>
+	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity H</h2><p>Presenter: Mark Goldsmith<br />Rippowam Middle School</p></a>
+       	</li>
+
+	<li>
+         <a href="#"><p>1:00 PM</p><h2>Activity J</h2><p>Presenter: Kristen Bivona</p></a>
+       	</li>
+
+
+	<li>
+         <a href="#"><p>1:45 PM</p><h2>Activity L</h2><p>Presenter: Michelle Mallozzi</p></a>
+       	</li>
+
+
+
+	<li>
+         <a href="#"><p>2:30 PM</p><h2>Activity N</h2><p>Presenter: Sid Watson</p></a>
+       	</li>
+
+	<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity O</h2><p>Presenter: Young Mariners of Stamford</p></a>
+       	</li>
+
+
+		</ul></div></div></div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="schedule-grade"><div data-role="header" data-position="fixed">
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Schedule &amp; Activities</h1></div><div data-role="main" class="ui-content"><form method="post" action="demoform.asp"><fieldset class="ui-field-contain">
+    <label for="sortBy3">Sort by:</label>
+    <select name="sortBy3" id="sortBy3"><option value="grade" href="#schedule-grade">Grade Level</option><option value="time" href="#schedule">Category(default)</option><option value="org" href="#schedule-org">School/Organization</option></select>
+  </fieldset></form><script>
+document.getElementById('sortBy3').onchange = function() {
+    window.location.href = this.children[this.selectedIndex].getAttribute('href');
+}
+</script>
+
+<br /><p>Search for activities:</p><form class="ui-filterable">
+      <input data-type="search" id="userInput3" placecholder="Search for activities.." />
+    </form><div data-role="collapsible-set" data-collapsed-icon="carat-r" data-expanded-icon="carat-d"><div data-role="collapsible"><h3>All Grades<span class="ui-li-count">13</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+      <li>
+         <a href="#"><p>9:00 AM</p><h2>Registration</h2></a>
+       </li>
+      <li>
+         <a href="#"><p>10:00 AM</p><h2>Opening</h2></a>
+       </li>
+       <li>
+         <a href="#"><p>10:45 AM</p><h2>Activity A</h2><p>Presenter: Ira Flatow</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity B</h2><p>Presenter: Adam Scianna</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+
+       <li>
+         <a href="#"><p>11:30 AM</p><h2>Activity D</h2><p>Presenter: Society of Women Engineers</p></a>
+       </li>
+
+
+
+	<li>
+         <a href="#"><p>11:30 AM</p><h2>Activity F</h2><p>Presenter: Women in Aviation</p></a>
+       </li>
+
+       <li>
+         <a href="#"><p>12:15 PM</p><h2>Activity G</h2><p>Presenter: Young Mariners of Stamford</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>1:00 PM</p><h2>Activity J</h2><p>Presenter: Kristen Bivona</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>1:45 PM</p><h2>Activity L</h2><p>Presenter: Michelle Mallozzi</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>2:30 PM</p><h2>Activity N</h2><p>Presenter: Sid Watson</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity O</h2><p>Presenter: Young Mariners of Stamford</p></a>
+       </li>
+
+
+<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity Q</h2><p>Presenter: Rippowam Labs</p></a>
+       </li>
+      <li>
+         <a href="#"><p>4:00 PM</p><h2>Closing</h2></a>
+       </li>
+    </ul></div><div data-role="collapsible"><h3>Pre-K<span class="ui-li-count">3</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#animalembassy"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+              	<li>
+       <li>
+         <a href="#aquarion"><p>All Day</p><h2>Aquarion Water: How Water Works</h2><p>Presenter: Peter Fazekas</p></a>
+       </li>
+
+         <a href="#"><p>12:15 PM</p><h2>Activity R</h2><p>Presenter: Kids Draw Free</p></a>
+       </li>
+		</ul></div><div data-role="collapsible"><h3>K-2<span class="ui-li-count">4</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+	<li>
+       <li>
+         <a href="#aquarion"><p>All Day</p><h2>Aquarion Water: How Water Works</h2><p>Presenter: Peter Fazekas</p></a>
+       </li>
+
+         <a href="#"><p>3:15 PM</p><h2>Activity P</h2><p>Presenter: Alec Iogman<br />Westover Magnet Elementary School</p></a>
+       </li>
+		       	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity R</h2><p>Presenter: Kids Draw Free</p></a>
+       </li>
+        </ul></div><div data-role="collapsible"><h3>3-5<span class="ui-li-count">4</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+       <li>
+         <a href="#aquarion"><p>All Day</p><h2>Aquarion Water: How Water Works</h2><p>Presenter: Peter Fazekas</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity P</h2><p>Presenter: Alec Iogman<br />Westover Magnet Elementary School</p></a>
+       </li>
+              	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity R</h2><p>Presenter: Kids Draw Free</p></a>
+       </li>
+		</ul></div><div data-role="collapsible"><h3>6-8<span class="ui-li-count">6</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+       <li>
+         <a href="#aquarion"><p>All Day</p><h2>Aquarion Water: How Water Works</h2><p>Presenter: Peter Fazekas</p></a>
+       </li>
+
+	<li>
+         <a href="#"><p>11:30 AM</p><h2>Activity E</h2><p>Presenter: Mike Sapia<br />Rippowam Middle School</p></a>
+       </li>
+	<li>
+         <a href="#"><p>12:15 PM</p><h2>Activity H</h2><p>Presenter: Mark Goldsmith<br />Rippowam Middle School</p></a>
+       </li>
+	<li>
+         <a href="#"><p>1:00 PM</p><h2>Activity I</h2><p>Presenter: Eileen Wargo<br />Scofield Magnet Middle School</p></a>
+       </li>
+	<li>
+         <a href="#"><p>1:45 PM</p><h2>Activity K</h2><p>Presenter: Karen Kulish<br />Scofield Magnet Middle School</p></a>
+       </li>
+		</ul></div><div data-role="collapsible"><h3>9-12<span class="ui-li-count">4</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+</li>
+       <li>
+         <a href="stemfestactivities.html#aquarion">Aquarion Water: How Water Works</a>
+       </li>
+
+	<li>
+         <a href="#"><p>2:30 PM</p><h2>Activity M</h2><p>Presenter: Vin Urbanowski<br />Academy of Information Technology and Engineering</p></a>
+       </li>
+
+<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity Q</h2><p>Presenter: Rippowam Labs</p></a>
+       </li>
+		</ul></div><div data-role="collapsible"><h3>College<span class="ui-li-count">2</span></h3><ul data-role="listview" data-inset="true" data-filter="true" data-input="#userInput3">
+			<li>
+         <a href="#"><p>10:45 AM</p><h2>Activity C</h2><p>Presenter: Animal Embassy</p></a>
+       </li>
+
+<li>
+         <a href="#"><p>3:15 PM</p><h2>Activity Q</h2><p>Presenter: Rippowam Labs</p></a>
+       </li>
+		</ul></div></div></div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="schedule-org"><div data-role="header" data-position="fixed">
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Schedule &amp; Activities</h1></div><div data-role="main" class="ui-content"><form method="post" action="demoform.asp"><fieldset class="ui-field-contain">
+    <label for="sortBy4">Sort by:</label>
+    <select name="sortBy4" id="sortBy4"><option value="org" href="#schedule-org">School/Organization</option><option value="cat" href="#schedule">Category(default)</option><option value="grade" href="#schedule-grade">Grade Level</option></select>
+  </fieldset></form><script>
+document.getElementById('sortBy4').onchange = function() {
+    window.location.href = this.children[this.selectedIndex].getAttribute('href');
+}
+</script>
+
+<br /><p>Search for activities:</p><form class="ui-filterable">
+      <input data-type="search" id="userInput4" placecholder="Search for activities.." />
+    </form>
+<ul data-role="listview" data-filter="true" data-input="#userInput4">
+  <li><a href="stemfestactivities.html#rippowam-labs">Adele</a></li>
+  <li><a href="#">Billy</a></li>
+  <li><a href="#">Calvin</a></li>
+</ul>
+
+</div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div>
+
+
+</body>
+</html>
