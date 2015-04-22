@@ -572,9 +572,7 @@ html body .ui-group-theme-c .ui-bar-inherit {
 	text-shadow: 0 /*{c-page-shadow-x}*/ 1px /*{c-page-shadow-y}*/ 0 /*{c-page-shadow-radius}*/ #f3f3f3 /*{c-page-shadow-color}*/;
 }
 /* Body: Read-only lists, text inputs, collapsible content */
-ui collapsible{
-	height:100%;
-}
+
 .ui-body-c,
 .ui-page-theme-c .ui-body-inherit,
 html .ui-bar-c .ui-body-inherit,
