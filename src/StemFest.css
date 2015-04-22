@@ -98,6 +98,9 @@ label.ui-btn {
 /* Flipswitch */
 .ui-flipswitch.ui-corner-all,
 /* Count bubble */
+.ui-li {
+padding: 0;
+}
 .ui-li-count {
 background-color:#ffffff;	-webkit-border-radius: .3125em /*{global-radii-buttons}*/;
 	border-radius: .3125em /*{global-radii-buttons}*/;
