@@ -120,14 +120,7 @@ $( document ).on( "pageinit", "#directions", function() {
     
     <img src="http://www.stamfordpublicschools.org/sites/stamfordps/files/u153/stemfest_map.jpg" />
   </div><div data-role="footer"><h1>Designed by: Katie Burkhardt</h1></div></div><div data-role="page" id="schedule"><div data-role="header" data-position="fixed">
-    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Schedule &amp; Activities</h1></div><div data-role="main" class="ui-content"><form method="post" action="demoform.asp"><fieldset class="ui-field-contain">
-    <label for="sortBy2">Sort by:</label>
-    <select name="sortBy2" id="sortBy2"><option value="cat" href="#schedule-cat">Category(default)</option><option value="grade" href="#schedule-grade">Grade Level</option><option value="org" href="#schedule-org">School/Organization</option></select>
-  </fieldset></form><script>
-document.getElementById('sortBy2').onchange = function() {
-    window.location.href = this.children[this.selectedIndex].getAttribute('href');
-}
-</script>
+    <a href="#main_menu" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">Home</a><h1>Schedule &amp; Activities</h1></div><div data-role="main" class="ui-content">
 
 <br /><p>Search for activities:</p><form class="ui-filterable">
       <input data-type="search" id="userInput1" placecholder="Search for activities.." />
