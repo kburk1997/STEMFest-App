@@ -26,6 +26,10 @@ button,
 	line-height: 1.3;
 	      font-family: sans-serif /*{global-font-family}*/;
 }
+.ui-li {
+padding: 0;
+margin: 0;
+}
 legend,
 .ui-input-text input,
 .ui-input-search input {
@@ -98,10 +102,7 @@ label.ui-btn {
 /* Flipswitch */
 .ui-flipswitch.ui-corner-all,
 /* Count bubble */
-.ui-li {
-padding: 0;
-margin: 0;
-}
+
 .ui-li-count {
 background-color:#ffffff;	-webkit-border-radius: .3125em /*{global-radii-buttons}*/;
 	border-radius: .3125em /*{global-radii-buttons}*/;
